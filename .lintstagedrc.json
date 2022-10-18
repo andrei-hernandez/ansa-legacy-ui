@@ -1,5 +1,5 @@
 {
   "./**/*.{ts,tsx}": [
-    "next lint --fix"
+    "next lint --fix ."
   ]
 }

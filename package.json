@@ -10,7 +10,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{tsx, ts}": "eslint --fix --cache"
+    "*.{tsx, ts}": "eslint --fix"
   },
   "dependencies": {
     "antd": "^4.23.6",

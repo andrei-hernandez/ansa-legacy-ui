@@ -2,9 +2,21 @@ import React, { FunctionComponent } from "react"
 import { Form, Input, Button, Row, Col, Typography } from "antd"
 import Link from "next/link"
 
-export const LoginForm: FunctionComponent = (): JSX.Element => {
+import { ILoginCredentials } from "@/types/Auth"
+
+interface ILoginFormProps {
+  onSubmit: (values: ILoginCredentials) => void
+}
+
+export const LoginForm: FunctionComponent<ILoginFormProps> = ({ onSubmit }): JSX.Element => {
 
   const [form] = Form.useForm()
+
+  const handleSubmit = async (): Promise<void> => {
+    await form.validateFields()
+    const values: ILoginCredentials = form.getFieldsValue()
+    onSubmit(values)
+  }
 
   return (
     <Form
@@ -16,7 +28,7 @@ export const LoginForm: FunctionComponent = (): JSX.Element => {
         <Col span={24}>
           <Form.Item
             label="Nombre de usuario"
-            name="username"
+            name="login"
             rules={[{ required: true, message: "Please input your username!" }]}>
             <Input />
           </Form.Item>
@@ -33,6 +45,7 @@ export const LoginForm: FunctionComponent = (): JSX.Element => {
           <Button
             type="primary"
             htmlType="submit"
+            onClick={(): Promise<void> => handleSubmit()}
             className="login-form-button">
             Iniciar sesión
           </Button>

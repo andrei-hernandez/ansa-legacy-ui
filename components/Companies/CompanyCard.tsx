@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Card, List, Tag } from 'antd'
+import { Card, Space, Tag } from 'antd'
 import Image from 'next/image'
 
 import { ICompany } from '@/types/Company'
@@ -21,18 +21,10 @@ export const CompanyCard: FunctionComponent<ICompanyCardProps> = ({ company }): 
           src={company.banner ?? ''} />
       }>
       <Card.Meta title={company.name} description={company.address} />
-      <List
-        split={false}
-        bordered={false}
-        itemLayout="horizontal"
-        grid={{ gutter: 8, column: 5 }}
-        dataSource={company.categories}
-        className="company-card-categories"
-        renderItem={
-          (category: string): JSX.Element => <List.Item>
-            <Tag color="default">{category}</Tag>
-          </List.Item>
-        } />
+      <Space direction="horizontal" className="company-card-categories">
+        {company?.categories?.map((category: string): JSX.Element =>
+          <Tag color="default" key={category}>{category}</Tag>)}
+      </Space>
     </Card>
   )
 }

@@ -19,7 +19,6 @@ const Home: NextPage = () => {
   return (
     <MainLayout>
       <div
-        data-testid="homepage-container"
         className="main-page-container">
         <CompanyGrid data={data ?? []} />
       </div>

@@ -1,15 +1,11 @@
-import { expect, test } from 'vitest'
-import { render, screen, within } from '@testing-library/react'
+import { describe, it, afterEach } from 'vitest'
+import { render, cleanup } from '@testing-library/react'
 import Home from '../pages'
 
-test('home', () => {
-  render(<Home />)
-  const main = within(screen.getByTestId('homepage-container'))
-  expect(
-    main.getByRole('header', { level: 1, name: /welcome to next\.js!/i })
-  ).toBeDefined()
+describe('HomePage', () => {
+  afterEach(cleanup)
 
-  const footer = within(screen.getByRole('contentinfo'))
-  const link = within(footer.getByRole('link'))
-  expect(link.getByRole('img', { name: /vercel logo/i })).toBeDefined()
+  it('should render the homepage', () => {
+    render(<Home />)
+  })
 })

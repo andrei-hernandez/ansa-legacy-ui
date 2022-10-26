@@ -12,8 +12,7 @@ export const alias: Record<string, string> = {
 export default defineConfig({
   plugins: [react()],
   test: {
-    environment: 'jsdom',
-    setupFiles: [r('setup/setup.ts')]
+    environment: 'happy-dom'
   },
   resolve: {
     alias

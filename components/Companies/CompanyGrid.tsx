@@ -1,16 +1,15 @@
-import React, { FunctionComponent } from "react"
-import { CompanyCard } from "./CompanyCard"
-import { List } from "antd"
-import { ListGridType } from "antd/lib/list"
+import React, { FunctionComponent } from 'react'
+import { CompanyCard } from './CompanyCard'
+import { List } from 'antd'
+import { ListGridType } from 'antd/lib/list'
 
-import { ICompany } from "@/types/Company"
+import { ICompany } from '@/types/Company'
 
 interface ICompanyGridProps {
   data: Array<ICompany>
 }
 
 export const CompanyGrid: FunctionComponent<ICompanyGridProps> = ({ data }): JSX.Element => {
-
   const gridSettings: ListGridType = {
     gutter: 16,
     column: 3,

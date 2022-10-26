@@ -1,9 +1,8 @@
-import { IAxiosRestServicesReturns } from "@/types/AxiosRestService"
-import { IRestResponse } from "@/types/RestServices"
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
+import { IRestResponse } from '@/types/RestServices'
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-export const AxiosRestService = (): IAxiosRestServicesReturns => {
-
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export const AxiosRestService = () => {
   const Get = async<T> (url: string, config: AxiosRequestConfig): Promise<AxiosResponse<IRestResponse<T>>> => {
     return await axios.get<IRestResponse<T>>(url, config)
   }

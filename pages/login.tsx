@@ -1,15 +1,14 @@
-import React from "react"
-import { NextPage } from "next"
-import { Card } from "antd"
-import { LoginForm } from "@/components/Auth/LoginForm"
-import { signIn } from "next-auth/react"
+import React from 'react'
+import { NextPage } from 'next'
+import { Card } from 'antd'
+import { LoginForm } from '@/components/Auth/LoginForm'
+import { signIn } from 'next-auth/react'
 
-import { ILoginCredentials } from "@/types/Auth"
+import { ILoginCredentials } from '@/types/Auth'
 
 const LoginPage: NextPage = (): JSX.Element => {
-
-  const handleLogin = (values: ILoginCredentials): void => {
-    signIn("credentials", {
+  const handleLogin = async (values: ILoginCredentials): Promise<void> => {
+    await signIn('credentials', {
       login: values.login,
       password: values.password,
       redirect: false
@@ -20,7 +19,7 @@ const LoginPage: NextPage = (): JSX.Element => {
     <div className="login-page">
       <Card
         style={{ width: 450 }}
-        headStyle={{ textAlign: "center", fontSize: "1.5rem" }}
+        headStyle={{ textAlign: 'center', fontSize: '1.5rem' }}
         title="Iniciar sesión"
         className="login-card-container">
         <LoginForm

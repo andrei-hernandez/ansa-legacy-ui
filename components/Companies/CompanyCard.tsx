@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react"
-import { Card, List, Tag } from "antd"
-import Image from "next/image"
+import React, { FunctionComponent } from 'react'
+import { Card, List, Tag } from 'antd'
+import Image from 'next/image'
 
-import { ICompany } from "@/types/Company"
+import { ICompany } from '@/types/Company'
 
 interface ICompanyCardProps {
   company: Partial<ICompany>
@@ -15,8 +15,10 @@ export const CompanyCard: FunctionComponent<ICompanyCardProps> = ({ company }): 
       cover={
         <Image
           className="company-card-banner"
+          height="180"
+          width="587"
           alt={company.name}
-          src={company.banner ?? ""} />
+          src={company.banner ?? ''} />
       }>
       <Card.Meta title={company.name} description={company.address} />
       <List

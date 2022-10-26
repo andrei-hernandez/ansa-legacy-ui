@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react"
-import { Layout } from "antd"
+import React, { FunctionComponent } from 'react'
+import { Layout } from 'antd'
 
 interface ILayoutProps {
   children: JSX.Element

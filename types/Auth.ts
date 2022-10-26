@@ -21,6 +21,17 @@ export interface ICreateAccountData {
   updatedAt?: string | Date
 }
 
+export interface IAccount {
+  id?: string | number
+  name: string
+  surname: string
+  login: string
+  password: string
+  role: AccountRole
+  createdAt?: string | Date
+  updatedAt?: string | Date
+}
+
 export interface ICreateAccountResponse {
   success: boolean
   message: string
@@ -28,5 +39,5 @@ export interface ICreateAccountResponse {
 }
 
 enum AccountRole {
-  CLIENT = "CLIENT",
+  CLIENT = 'CLIENT',
 }

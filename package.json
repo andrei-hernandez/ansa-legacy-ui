@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "lint-staged": {
     "*.{tsx, ts}": "eslint --fix"
@@ -23,19 +25,29 @@
     "sass": "^1.55.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^13.4.0",
     "@types/node": "18.11.0",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/eslint-plugin": "5.0.0",
     "@typescript-eslint/parser": "^5.40.1",
-    "eslint": "8.25.0",
+    "@vitejs/plugin-react": "^2.1.0",
+    "eslint": "8.0.1",
     "eslint-config-next": "12.3.1",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-n": "15.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.0",
+    "jsdom": "^20.0.1",
     "lint-staged": "^13.0.3",
-    "typescript": "4.8.4"
+    "standard": "^17.0.0",
+    "typescript": "^4.8.4",
+    "vitest": "^0.24.3"
   }
 }

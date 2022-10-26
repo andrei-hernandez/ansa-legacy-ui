@@ -1,13 +1,12 @@
-import type { NextPage } from "next"
-import { useEffect, useState } from "react"
-import { MainLayout } from "@/components/shared/layout"
-import { CompanyGrid } from "@/components/Companies"
-import { COMPANIES_MOCK_DATA } from "@/utils/mockData/companies"
+import type { NextPage } from 'next'
+import { useEffect, useState } from 'react'
+import { MainLayout } from '@/components/shared/layout'
+import { CompanyGrid } from '@/components/Companies'
+import { COMPANIES_MOCK_DATA } from '@/utils/mockData/companies'
 
-import { ICompany } from "@/types/Company"
+import { ICompany } from '@/types/Company'
 
 const Home: NextPage = () => {
-
   const [data, setData] = useState<Array<ICompany> | undefined>(undefined)
 
   useEffect(() => {
@@ -19,7 +18,9 @@ const Home: NextPage = () => {
 
   return (
     <MainLayout>
-      <div className="main-page-container">
+      <div
+        data-testid="homepage-container"
+        className="main-page-container">
         <CompanyGrid data={data ?? []} />
       </div>
     </MainLayout>

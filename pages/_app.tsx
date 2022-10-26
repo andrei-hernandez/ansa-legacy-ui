@@ -1,10 +1,12 @@
-import "antd/dist/antd.dark.css"
-import "../styles/globals.sass"
-import type { AppProps } from "next/app"
-import Head from "next/head"
+import 'antd/dist/antd.dark.css'
+import '../styles/globals.sass'
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
+import { SessionProvider } from 'next-auth/react'
+import { Session } from 'next-auth'
 
-function MyApp ({ Component, pageProps }: AppProps): JSX.Element {
-
+function MyApp ({ Component, pageProps: { session, ...pageProps } }:
+  AppProps<{ session: Session }>): JSX.Element {
   return (
     <>
       <Head>
@@ -24,7 +26,9 @@ function MyApp ({ Component, pageProps }: AppProps): JSX.Element {
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
       </Head>
-      <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </>
   )
 }

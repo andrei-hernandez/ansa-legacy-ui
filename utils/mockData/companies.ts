@@ -10,20 +10,23 @@ export const COMPANIES_MOCK_DATA: Array<ICompany> = [
     name: 'Company 1',
     address: 'Address 1',
     categories: ['Category 1', 'Category 2'],
-    banner: banner1
+    banner: banner1,
+    companyType: 'food'
   },
   {
     id: 2,
     name: 'Company 2',
     address: 'Address 2',
     categories: ['Category 1'],
-    banner: banner2
+    banner: banner2,
+    companyType: 'food'
   },
   {
     id: 3,
     name: 'Company 3',
     address: 'Address 3',
     categories: ['Category 1', 'Category 2', 'Category 3'],
-    banner: banner3
+    banner: banner3,
+    companyType: 'food'
   }
 ]

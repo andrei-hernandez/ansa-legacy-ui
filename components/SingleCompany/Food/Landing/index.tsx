@@ -1,11 +1,11 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { COMPANIES_MOCK_DATA } from '@/utils/mockData/companies'
-import { HeadBanner } from '@/components/SingleCompany/Landing/HeadBanner'
+import { HeadBanner } from '../../SharedSections/HeadBanner'
 
 import { ICompany } from '@/types/Company'
 
-const SingleCompanyPage: FunctionComponent = (): JSX.Element => {
+export const FoodCompanyLanding: FunctionComponent = (): JSX.Element => {
   const router = useRouter()
   const [companyData, setCompanyData] = useState<ICompany | undefined | null>(null)
   const companyId = router.query.id as string
@@ -25,9 +25,9 @@ const SingleCompanyPage: FunctionComponent = (): JSX.Element => {
       <HeadBanner
         imageSrc={companyData?.banner ?? ''}
         companyName={companyData?.name} />
-      {companyData?.name}
+      This is the landing page for the food company
     </div>
   )
 }
 
-export default SingleCompanyPage
+export default FoodCompanyLanding

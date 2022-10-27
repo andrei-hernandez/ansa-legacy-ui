@@ -6,4 +6,9 @@ export interface ICompany {
   address: string
   categories: Array<string>
   banner: string | StaticImageData
+  companyType: string
+}
+
+export enum CompanyTypes {
+  food = 'food',
 }

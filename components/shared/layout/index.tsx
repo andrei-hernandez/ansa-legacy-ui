@@ -9,7 +9,7 @@ export const MainLayout: FunctionComponent<ILayoutProps> = ({ children }): JSX.E
   return (
     <Layout>
       <Layout.Header>
-        THis is the header for anysales
+        This is the header for anysales
       </Layout.Header>
       <Layout>
         {children}

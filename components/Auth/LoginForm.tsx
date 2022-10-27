@@ -1,15 +1,14 @@
-import React, { FunctionComponent } from "react"
-import { Form, Input, Button, Row, Col, Typography } from "antd"
-import Link from "next/link"
+import React, { FunctionComponent } from 'react'
+import { Form, Input, Button, Row, Col, Typography } from 'antd'
+import Link from 'next/link'
 
-import { ILoginCredentials } from "@/types/Auth"
+import { ILoginCredentials } from '@/types/Auth'
 
 interface ILoginFormProps {
   onSubmit: (values: ILoginCredentials) => void
 }
 
 export const LoginForm: FunctionComponent<ILoginFormProps> = ({ onSubmit }): JSX.Element => {
-
   const [form] = Form.useForm()
 
   const handleSubmit = async (): Promise<void> => {
@@ -29,7 +28,7 @@ export const LoginForm: FunctionComponent<ILoginFormProps> = ({ onSubmit }): JSX
           <Form.Item
             label="Nombre de usuario"
             name="login"
-            rules={[{ required: true, message: "Please input your username!" }]}>
+            rules={[{ required: true, message: 'Please input your username!' }]}>
             <Input />
           </Form.Item>
         </Col>
@@ -37,7 +36,7 @@ export const LoginForm: FunctionComponent<ILoginFormProps> = ({ onSubmit }): JSX
           <Form.Item
             label="Contraseña"
             name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}>
+            rules={[{ required: true, message: 'Please input your password!' }]}>
             <Input.Password />
           </Form.Item>
         </Col>
@@ -45,7 +44,7 @@ export const LoginForm: FunctionComponent<ILoginFormProps> = ({ onSubmit }): JSX
           <Button
             type="primary"
             htmlType="submit"
-            onClick={(): Promise<void> => handleSubmit()}
+            onClick={async (): Promise<void> => await handleSubmit()}
             className="login-form-button">
             Iniciar sesión
           </Button>

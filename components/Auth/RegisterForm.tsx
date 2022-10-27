@@ -1,10 +1,8 @@
-import React, { FunctionComponent } from "react"
-import { Form, Input, Button, Row, Col, Typography } from "antd"
-import Link from "next/link"
-
+import React, { FunctionComponent } from 'react'
+import { Form, Input, Button, Row, Col, Typography } from 'antd'
+import Link from 'next/link'
 
 export const RegisterForm: FunctionComponent = (): JSX.Element => {
-
   const [form] = Form.useForm()
 
   return (
@@ -18,7 +16,7 @@ export const RegisterForm: FunctionComponent = (): JSX.Element => {
           <Form.Item
             label="Nombre"
             name="name"
-            rules={[{ required: true, message: "Por favor introduce unn nombre de usuario" }]}>
+            rules={[{ required: true, message: 'Por favor introduce unn nombre de usuario' }]}>
             <Input />
           </Form.Item>
         </Col>
@@ -26,7 +24,7 @@ export const RegisterForm: FunctionComponent = (): JSX.Element => {
           <Form.Item
             label="Apellido"
             name="surname"
-            rules={[{ required: true, message: "Please input your username!" }]}>
+            rules={[{ required: true, message: 'Please input your username!' }]}>
             <Input />
           </Form.Item>
         </Col>
@@ -34,7 +32,7 @@ export const RegisterForm: FunctionComponent = (): JSX.Element => {
           <Form.Item
             label="Nombre de usuario"
             name="username"
-            rules={[{ required: true, message: "Please input your password!" }]}>
+            rules={[{ required: true, message: 'Please input your password!' }]}>
             <Input />
           </Form.Item>
         </Col>
@@ -42,7 +40,7 @@ export const RegisterForm: FunctionComponent = (): JSX.Element => {
           <Form.Item
             label="Contraseña"
             name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}>
+            rules={[{ required: true, message: 'Please input your password!' }]}>
             <Input.Password />
           </Form.Item>
         </Col>
@@ -63,5 +61,3 @@ export const RegisterForm: FunctionComponent = (): JSX.Element => {
     </Form>
   )
 }
-
-

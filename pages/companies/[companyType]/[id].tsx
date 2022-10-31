@@ -4,42 +4,40 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { CompanyTypes } from '@/types/Common'
 import { GetServerSideProps } from 'next'
-import { ICompany } from '@/types/Company'
 import { COMPANIES_MOCK_DATA } from '@/utils/mockData/companies'
+import { ICompany } from '@/types/Company'
 
 const FoodLanding = dynamic(() => import('@/components/SingleCompany/Food/Landing'))
 
-const BooksLanding = dynamic(() => import('@/components/SingleCompany/Default/Landing'))
+interface ISingleCompanyProps {
+  singleCompanyData: ICompany
+}
 
-const renderModalContent = (companyType: CompanyTypes): JSX.Element => {
+const renderModalContent = (companyType: CompanyTypes, componentProps: ISingleCompanyProps): JSX.Element => {
   const companyViews = {
-    food: <FoodLanding />,
-    books: <BooksLanding />
+    food: <FoodLanding {...componentProps} />
   }
   return companyViews[companyType] ?? <div>Company Category not found</div>
 }
 
-const SingleCompanyPage: FunctionComponent = (): JSX.Element => {
+const SingleCompanyPage: FunctionComponent<ISingleCompanyProps> = (props): JSX.Element => {
   const router = useRouter()
   const companyType = router.query.companyType as CompanyTypes
 
   return (
     <div className="single-company-landing">
-      {renderModalContent(companyType)}
+      {renderModalContent(companyType, { ...props })}
     </div>
   )
 }
 
-export const getServerSideProps: GetServerSideProps<{ singleCompanyData?: Partial<ICompany | null> }> = async context => {
+export const getServerSideProps: GetServerSideProps = async context => {
   const companyId = context.params?.id as string
   const companyType = context.params?.companyType as CompanyTypes
-
-  let singleCompany: ICompany | undefined
 
   if (companyId.length > 0) {
     const response = COMPANIES_MOCK_DATA
       .find(company => company.id === Number(context?.params?.id ?? 0))
-    singleCompany = response
 
     if (companyType !== response?.companyType) {
       context.res.writeHead(303, {
@@ -47,12 +45,16 @@ export const getServerSideProps: GetServerSideProps<{ singleCompanyData?: Partia
       })
       context.res.end()
     }
+
+    return {
+      props: {
+        singleCompanyData: response
+      }
+    }
   }
 
   return {
-    props: {
-      singleCompanyData: singleCompany ?? null
-    }
+    props: {}
   }
 }
 

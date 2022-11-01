@@ -14,8 +14,17 @@ describe('SingleCompanyPage', () => {
     })
   }))
 
+  const mockData = {
+    id: 1,
+    name: 'Test Company',
+    address: 'Test Address',
+    categories: ['Test Category'],
+    banner: 'https://via.placeholder.com/150',
+    companyType: 'food'
+  }
+
   it('should render the SingleCompanyPage', () => {
     render(
-      <SingleCompanyPage />)
+      <SingleCompanyPage singleCompanyData={mockData} />)
   })
 })

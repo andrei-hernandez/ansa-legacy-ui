@@ -36,6 +36,7 @@
     "@typescript-eslint/space-before-blocks": "off",
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/indent": "off",
+    "no-extra-boolean-cast": "off",	
     "@typescript-eslint/naming-convention": [
       "error",
       {

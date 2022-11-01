@@ -11,7 +11,19 @@ export const COMPANIES_MOCK_DATA: Array<ICompany> = [
     address: 'Address 1',
     categories: ['Category 1', 'Category 2'],
     banner: banner1,
-    companyType: 'food'
+    companyType: 'food',
+    companyLocation: {
+      cords: {
+        lat: 19.439890549537136,
+        lng: -99.20333691844232
+      },
+      markers: [
+        {
+          lat: 19.439890549537136,
+          lng: -99.20333691844232
+        }
+      ]
+    }
   },
   {
     id: 2,
@@ -19,7 +31,19 @@ export const COMPANIES_MOCK_DATA: Array<ICompany> = [
     address: 'Address 2',
     categories: ['Category 1'],
     banner: banner2,
-    companyType: 'food'
+    companyType: 'food',
+    companyLocation: {
+      cords: {
+        lat: 19.439890549537136,
+        lng: -99.20333691844232
+      },
+      markers: [
+        {
+          lat: 19.439890549537136,
+          lng: -99.20333691844232
+        }
+      ]
+    }
   },
   {
     id: 3,
@@ -27,6 +51,18 @@ export const COMPANIES_MOCK_DATA: Array<ICompany> = [
     address: 'Address 3',
     categories: ['Category 1', 'Category 2', 'Category 3'],
     banner: banner3,
-    companyType: 'food'
+    companyType: 'food',
+    companyLocation: {
+      cords: {
+        lat: 19.439890549537136,
+        lng: -99.20333691844232
+      },
+      markers: [
+        {
+          lat: 19.439890549537136,
+          lng: -99.20333691844232
+        }
+      ]
+    }
   }
 ]

@@ -7,6 +7,12 @@ export interface ICompany {
   categories: Array<string>
   banner: string | StaticImageData
   companyType: string
+  companyLocation: ICompanyLocation
+}
+
+export interface ICompanyLocation {
+  cords: { lat: number, lng: number }
+  markers?: Array<{ lat: number, lng: number }>
 }
 
 export enum CompanyTypes {

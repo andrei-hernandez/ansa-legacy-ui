@@ -21,7 +21,10 @@ export const FoodCompanyLanding: FunctionComponent<IFoodCompanyLandingProps> = (
           <AboutUs />
         </Col>
         <Col span={24}>
-          <Location />
+          <Location
+            companyAddress={singleCompanyData?.address}
+            companyLocation={singleCompanyData.companyLocation.cords}
+            companyMapMarkers={singleCompanyData.companyLocation.markers} />
         </Col>
       </Row>
     </div>

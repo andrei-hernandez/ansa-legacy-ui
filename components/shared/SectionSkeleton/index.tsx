@@ -4,7 +4,7 @@ import React, { FunctionComponent } from 'react'
 
 interface ISectionSkeletonProps extends CardProps {
   className?: string
-  children: JSX.Element
+  children: JSX.Element | Array<JSX.Element>
 }
 
 export const SectionSkeleton: FunctionComponent<ISectionSkeletonProps> = ({

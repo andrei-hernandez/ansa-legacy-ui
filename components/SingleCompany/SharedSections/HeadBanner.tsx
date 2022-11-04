@@ -10,8 +10,7 @@ export const HeadBanner: FunctionComponent<IHeadBannerProps> = ({ imageSrc, comp
   return (
     <div className="head-banner">
       <Image
-        data-testid="head-banner-image"
-        className="head-banner-image"
+        className=""
         layout="responsive"
         alt={companyName}
         src={imageSrc} />

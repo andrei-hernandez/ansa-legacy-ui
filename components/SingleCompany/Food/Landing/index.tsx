@@ -7,6 +7,8 @@ import { useReactiveColSize } from '@/hooks/useReactiveColSize'
 import { ContactForm } from '../../SharedSections/ContactForm'
 
 import { ICompany } from '@/types/Company'
+import { motion } from 'framer-motion'
+import { staggerTransition } from '@/utils/framer-motion/stagger-transition'
 
 interface IFoodCompanyLandingProps {
   singleCompanyData: ICompany
@@ -27,18 +29,20 @@ export const FoodCompanyLanding: FunctionComponent<IFoodCompanyLandingProps> = (
       <Row
         className="single-company-landing-content"
         justify="center">
-        <Col span={useReactiveColSize(colSizes)}>
-          <AboutUs />
-        </Col>
-        <Col span={useReactiveColSize(colSizes)}>
-          <Location
-            companyAddress={singleCompanyData?.address}
-            companyLocation={singleCompanyData.companyLocation.cords}
-            companyMapMarkers={singleCompanyData.companyLocation.markers} />
-        </Col>
-        <Col span={useReactiveColSize(colSizes)}>
-          <ContactForm />
-        </Col>
+        <motion.div variants={staggerTransition(0.025)}>
+          <Col span={useReactiveColSize(colSizes)}>
+            <AboutUs />
+          </Col>
+          <Col span={useReactiveColSize(colSizes)}>
+            <Location
+              companyAddress={singleCompanyData?.address}
+              companyLocation={singleCompanyData.companyLocation.cords}
+              companyMapMarkers={singleCompanyData.companyLocation.markers} />
+          </Col>
+          <Col span={useReactiveColSize(colSizes)}>
+            <ContactForm />
+          </Col>
+        </motion.div>
       </Row>
     </div>
   )

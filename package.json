@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install",
+    "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky install",
     "build:push": "npx rimraf .next/cache && yarn build && yarn test:push",
     "test:push": "yarn vitest run",
     "test": "vitest",

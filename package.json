@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "build:clean": "npx rimraf .next/cache && yarn build && yarn test",
+    "build:push": "npx rimraf .next/cache && yarn build && yarn test:push",
+    "test:push": "yarn vitest run",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },

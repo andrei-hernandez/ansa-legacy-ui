@@ -8,7 +8,8 @@ export const ContactForm: FunctionComponent = (): JSX.Element => {
 
   const colSizes = {
     desktop: 14,
-    mobile: 24
+    mobile: 24,
+    default: 24
   }
 
   return (

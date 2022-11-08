@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react'
 import { HeadBanner } from '../../SharedSections/HeadBanner'
-
-import { ICompany } from '@/types/Company'
 import { Row, Col } from 'antd'
 import { AboutUs } from '../../SharedSections/AboutUs'
 import { Location } from '../../SharedSections/Location'
 import { useReactiveColSize } from '@/hooks/useReactiveColSize'
 import { ContactForm } from '../../SharedSections/ContactForm'
+
+import { ICompany } from '@/types/Company'
 
 interface IFoodCompanyLandingProps {
   singleCompanyData: ICompany
@@ -15,7 +15,8 @@ interface IFoodCompanyLandingProps {
 export const FoodCompanyLanding: FunctionComponent<IFoodCompanyLandingProps> = ({ singleCompanyData }): JSX.Element => {
   const colSizes = {
     desktop: 16,
-    mobile: 24
+    mobile: 24,
+    default: 24
   }
 
   return (

@@ -4,6 +4,7 @@ import { useMemo } from 'react'
 interface IAvailableColSizes {
   mobile: number
   desktop: number
+  default: number
 }
 
 /**
@@ -15,12 +16,12 @@ export const useReactiveColSize = (AvailableColSizes: IAvailableColSizes): numbe
     throw new Error('You must pass an object with the available sizes for the grid.')
   }
   const screens = Grid.useBreakpoint()
-  const memoizedColSize = useMemo(() => {
-    if (screens.lg === true || screens.xl === true || screens.xxl === true) {
-      return AvailableColSizes.desktop
-    }
 
-    return AvailableColSizes.mobile
+  const memoizedColSize = useMemo(() => {
+    if (screens.xs === true) {
+      return AvailableColSizes.mobile
+    }
+    return AvailableColSizes.desktop
   }, [screens, AvailableColSizes])
 
   return memoizedColSize

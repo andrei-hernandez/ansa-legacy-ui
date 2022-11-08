@@ -25,6 +25,7 @@ export const CompanyGrid: FunctionComponent<ICompanyGridProps> = ({ data }): JSX
     <List
       grid={gridSettings}
       dataSource={data}
+      loading={data.length === 0}
       renderItem={(company: ICompany): JSX.Element =>
         <List.Item key={company.id}>
           <CompanyCard company={company} />

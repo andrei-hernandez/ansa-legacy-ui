@@ -7,6 +7,8 @@ import { useReactiveColSize } from '@/hooks/useReactiveColSize'
 import { ContactForm } from '../../SharedSections/ContactForm'
 
 import { ICompany } from '@/types/Company'
+import { motion } from 'framer-motion'
+import { staggerTransitionChild, staggerTransitionParent } from '@/utils/framer-motion/stagger-transition'
 
 interface IFoodCompanyLandingProps {
   singleCompanyData: ICompany
@@ -25,20 +27,31 @@ export const FoodCompanyLanding: FunctionComponent<IFoodCompanyLandingProps> = (
         imageSrc={singleCompanyData?.banner}
         companyName={singleCompanyData?.name} />
       <Row
-        className="single-company-landing-content"
-        justify="center">
-        <Col span={useReactiveColSize(colSizes)}>
-          <AboutUs />
-        </Col>
-        <Col span={useReactiveColSize(colSizes)}>
-          <Location
-            companyAddress={singleCompanyData?.address}
-            companyLocation={singleCompanyData.companyLocation.cords}
-            companyMapMarkers={singleCompanyData.companyLocation.markers} />
-        </Col>
-        <Col span={useReactiveColSize(colSizes)}>
-          <ContactForm />
-        </Col>
+        className="single-company-landing-content">
+        <motion.div
+          className="ant-row ant-row-center"
+          initial={'exit'}
+          animate={'enter'}
+          variants={staggerTransitionParent(0.025)}>
+          <Col span={useReactiveColSize(colSizes)}>
+            <motion.div variants={staggerTransitionChild()}>
+              <AboutUs />
+            </motion.div>
+          </Col>
+          <Col span={useReactiveColSize(colSizes)}>
+            <motion.div variants={staggerTransitionChild()}>
+              <Location
+                companyAddress={singleCompanyData?.address}
+                companyLocation={singleCompanyData.companyLocation.cords}
+                companyMapMarkers={singleCompanyData.companyLocation.markers} />
+            </motion.div>
+          </Col>
+          <Col span={useReactiveColSize(colSizes)}>
+            <motion.div variants={staggerTransitionChild()}>
+              <ContactForm />
+            </motion.div>
+          </Col>
+        </motion.div>
       </Row>
     </div>
   )

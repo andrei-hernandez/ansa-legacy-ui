@@ -14,7 +14,7 @@ interface ICompanyCardProps {
 export const CompanyCard: FunctionComponent<ICompanyCardProps> = ({ company }): JSX.Element => {
   const router = useRouter()
 
-  const hanldeClickOnCompanyCard = async (): Promise<void> => {
+  const handleClickOnCompanyCard = async (): Promise<void> => {
     void router.push(`/companies/${company.companyType ?? 'default'}/${company.id ?? ''}`)
   }
 
@@ -26,7 +26,7 @@ export const CompanyCard: FunctionComponent<ICompanyCardProps> = ({ company }): 
       <Card
         className="company-card"
         bordered={true}
-        onClick={hanldeClickOnCompanyCard}
+        onClick={handleClickOnCompanyCard}
         cover={
           <Image
             className="company-card-banner"

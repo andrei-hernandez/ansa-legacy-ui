@@ -9,6 +9,7 @@ import { ContactForm } from '../../SharedSections/ContactForm'
 import { ICompany } from '@/types/Company'
 import { motion } from 'framer-motion'
 import { staggerTransitionChild, staggerTransitionParent } from '@/utils/framer-motion/stagger-transition'
+import { Gallery } from '../../SharedSections/Gallery'
 
 interface IFoodCompanyLandingProps {
   singleCompanyData: ICompany
@@ -26,16 +27,22 @@ export const FoodCompanyLanding: FunctionComponent<IFoodCompanyLandingProps> = (
       <HeadBanner
         imageSrc={singleCompanyData?.banner}
         companyName={singleCompanyData?.name} />
-      <Row
-        className="single-company-landing-content">
-        <motion.div
-          className="ant-row ant-row-center"
-          initial={'exit'}
-          animate={'enter'}
-          variants={staggerTransitionParent(0.025)}>
+      <motion.div
+        initial="exit"
+        animate="enter"
+        variants={staggerTransitionParent(0.025)}>
+        <Row
+          justify="center"
+          align="middle"
+          className="single-company-landing-content">
           <Col span={useReactiveColSize(colSizes)}>
             <motion.div variants={staggerTransitionChild()}>
               <AboutUs />
+            </motion.div>
+          </Col>
+          <Col span={useReactiveColSize(colSizes)}>
+            <motion.div variants={staggerTransitionChild()}>
+              <Gallery />
             </motion.div>
           </Col>
           <Col span={useReactiveColSize(colSizes)}>
@@ -51,8 +58,8 @@ export const FoodCompanyLanding: FunctionComponent<IFoodCompanyLandingProps> = (
               <ContactForm />
             </motion.div>
           </Col>
-        </motion.div>
-      </Row>
+        </Row>
+      </motion.div>
     </div>
   )
 }

@@ -1,12 +1,13 @@
-import 'antd/dist/antd.dark.css'
 import '../styles/globals.sass'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { SessionProvider } from 'next-auth/react'
 import { Session } from 'next-auth'
+import { ConfigProvider, theme } from 'antd'
 
 function MyApp ({ Component, pageProps: { session, ...pageProps } }:
   AppProps<{ session: Session }>): JSX.Element {
+  const { darkAlgorithm } = theme ?? {}
   return (
     <>
       <Head>
@@ -27,7 +28,9 @@ function MyApp ({ Component, pageProps: { session, ...pageProps } }:
         <meta name="theme-color" content="#317EFB" />
       </Head>
       <SessionProvider session={session}>
-        <Component {...pageProps} />
+        <ConfigProvider theme={{ algorithm: darkAlgorithm }}>
+          <Component {...pageProps} />
+        </ConfigProvider>
       </SessionProvider>
     </>
   )

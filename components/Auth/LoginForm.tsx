@@ -50,9 +50,11 @@ export const LoginForm: FunctionComponent<ILoginFormProps> = ({ onSubmit }): JSX
           </Button>
         </Col>
         <Col span={24}>
-          <Typography.Paragraph className="change-auth-mode-text">
-            ¿No tienes una cuenta? <Link href="/register">Regístrate</Link>
-          </Typography.Paragraph>
+          <div className="change-auth-mode-text">
+            <Typography.Paragraph>
+              ¿No tienes una cuenta? <Link href="/register">Regístrate</Link>
+            </Typography.Paragraph>
+          </div>
         </Col>
       </Row>
     </Form>

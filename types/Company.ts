@@ -1,3 +1,4 @@
+import { IProduct } from './Product'
 import { StaticImageData } from 'next/image'
 
 export interface ICompany {
@@ -8,6 +9,7 @@ export interface ICompany {
   banner: string | StaticImageData
   companyType: string
   companyLocation: ICompanyLocation
+  topProducts: Array<IProduct>
 }
 
 export interface ICompanyLocation {

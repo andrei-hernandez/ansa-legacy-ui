@@ -36,7 +36,10 @@ export const CompanyCard: FunctionComponent<ICompanyCardProps> = ({ company }): 
             src={company.banner ?? ''} />
         }>
         <Card.Meta title={company.name} description={company.address} />
-        <Space direction="horizontal" className="company-card-categories">
+        <Space
+          size={5}
+          direction="horizontal"
+          className="company-card-categories">
           {company?.categories?.map((category: string): JSX.Element =>
             <Tag color="default" key={category}>{category}</Tag>)}
         </Space>

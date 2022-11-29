@@ -5,5 +5,8 @@ const withPWA = require("next-pwa")({
 
 module.exports = withPWA({
   reactStrictMode: false,
-  swcMinify: true
+  swcMinify: true,
+  images: {
+    domains: ["os.alipayobjects.com", "images.unsplash.com"]
+  }
 })

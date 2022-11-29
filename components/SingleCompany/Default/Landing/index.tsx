@@ -1,31 +1,65 @@
-import React, { FunctionComponent, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import { COMPANIES_MOCK_DATA } from '@/utils/mockData/companies'
+import React, { FunctionComponent } from 'react'
 import { HeadBanner } from '../../SharedSections/HeadBanner'
+import { motion } from 'framer-motion'
 
+import { staggerTransitionChild, staggerTransitionParent } from '@/utils/framer-motion/stagger-transition'
+import { Col, Row } from 'antd'
+import { AboutUs } from '../../SharedSections/AboutUs'
+import { Gallery } from '../../SharedSections/Gallery'
+import { TopProducts } from '../../SharedSections/TopProducts'
+import { Location } from '../../SharedSections/Location'
 import { ICompany } from '@/types/Company'
+import { ContactForm } from '../../SharedSections/ContactForm'
 
-export const FoodCompanyLanding: FunctionComponent = (): JSX.Element => {
-  const router = useRouter()
-  const [companyData, setCompanyData] = useState<ICompany | undefined | null>(null)
-  const companyId = router.query.id as string
+interface IDefaultCompanyLandingProps {
+  singleCompanyData: ICompany
+}
 
-  useEffect(() => {
-    if (companyId !== '') {
-      setTimeout(() => {
-        const singleCompany = COMPANIES_MOCK_DATA
-          .find(company => company.id === Number(companyId))
-        setCompanyData(singleCompany)
-      }, 60)
-    }
-  }, [companyId])
-
+export const FoodCompanyLanding: FunctionComponent<IDefaultCompanyLandingProps> = ({ singleCompanyData }): JSX.Element => {
   return (
     <div className="single-company-landing">
       <HeadBanner
-        imageSrc={companyData?.banner ?? ''}
-        companyName={companyData?.name} />
-      This is the landing page for the books company
+        imageSrc={singleCompanyData?.banner}
+        companyName={singleCompanyData?.name} />
+      <motion.div
+        initial="exit"
+        animate="enter"
+        variants={staggerTransitionParent(0.025)}>
+        <Row
+          justify="center"
+          align="middle"
+          className="single-company-landing-content">
+          <Col xs={24} xxl={16}>
+            <motion.div variants={staggerTransitionChild()}>
+              <AboutUs />
+            </motion.div>
+          </Col>
+          <Col xs={24} xxl={16}>
+            <motion.div variants={staggerTransitionChild()}>
+              <Gallery />
+            </motion.div>
+          </Col>
+          <Col xs={24} xxl={16}>
+            <motion.div variants={staggerTransitionChild()}>
+              <TopProducts
+                companyTopProducts={singleCompanyData.topProducts} />
+            </motion.div>
+          </Col>
+          <Col xs={24} xxl={16}>
+            <motion.div variants={staggerTransitionChild()}>
+              <Location
+                companyAddress={singleCompanyData?.address}
+                companyLocation={singleCompanyData.companyLocation.cords}
+                companyMapMarkers={singleCompanyData.companyLocation.markers} />
+            </motion.div>
+          </Col>
+          <Col xs={24} xxl={16}>
+            <motion.div variants={staggerTransitionChild()}>
+              <ContactForm />
+            </motion.div>
+          </Col>
+        </Row>
+      </motion.div>
     </div>
   )
 }

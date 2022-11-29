@@ -8,6 +8,7 @@ import { COMPANIES_MOCK_DATA } from '@/utils/mockData/companies'
 import { ICompany } from '@/types/Company'
 
 const FoodLanding = dynamic(() => import('@/components/SingleCompany/Food/Landing'))
+const DefaultLanding = dynamic(() => import('@/components/SingleCompany/Default/Landing'))
 
 interface ISingleCompanyProps {
   singleCompanyData: ICompany
@@ -15,9 +16,10 @@ interface ISingleCompanyProps {
 
 const renderModalContent = (companyType: CompanyTypes, componentProps: ISingleCompanyProps): JSX.Element => {
   const companyViews = {
-    food: <FoodLanding {...componentProps} />
+    food: <FoodLanding {...componentProps} />,
+    default: <DefaultLanding {...componentProps} />
   }
-  return companyViews[companyType] ?? <div>Company Category not found</div>
+  return companyViews[companyType] ?? companyViews.default
 }
 
 const SingleCompanyPage: FunctionComponent<ISingleCompanyProps> = (props): JSX.Element => {

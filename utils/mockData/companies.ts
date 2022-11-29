@@ -78,7 +78,7 @@ export const COMPANIES_MOCK_DATA: Array<ICompany> = [
     address: 'Address 3',
     categories: ['Category 1', 'Category 2', 'Category 3'],
     banner: banner3,
-    companyType: 'food',
+    companyType: 'default',
     companyLocation: {
       cords: {
         lat: 19.439890549537136,

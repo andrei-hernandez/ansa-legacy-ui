@@ -29,23 +29,23 @@ export const FoodCompanyLanding: FunctionComponent<IFoodCompanyLandingProps> = (
           justify="center"
           align="middle"
           className="single-company-landing-content">
-          <Col xs={24}>
+          <Col xs={24} xxl={16}>
             <motion.div variants={staggerTransitionChild()}>
               <AboutUs />
             </motion.div>
           </Col>
-          <Col xs={24}>
+          <Col xs={24} xxl={16}>
             <motion.div variants={staggerTransitionChild()}>
               <Gallery />
             </motion.div>
           </Col>
-          <Col xs={24}>
+          <Col xs={24} xxl={16}>
             <motion.div variants={staggerTransitionChild()}>
               <TopProducts
                 companyTopProducts={singleCompanyData.topProducts} />
             </motion.div>
           </Col>
-          <Col xs={24}>
+          <Col xs={24} xxl={16}>
             <motion.div variants={staggerTransitionChild()}>
               <Location
                 companyAddress={singleCompanyData?.address}
@@ -53,7 +53,7 @@ export const FoodCompanyLanding: FunctionComponent<IFoodCompanyLandingProps> = (
                 companyMapMarkers={singleCompanyData.companyLocation.markers} />
             </motion.div>
           </Col>
-          <Col xs={24}>
+          <Col xs={24} xxl={16}>
             <motion.div variants={staggerTransitionChild()}>
               <ContactForm />
             </motion.div>

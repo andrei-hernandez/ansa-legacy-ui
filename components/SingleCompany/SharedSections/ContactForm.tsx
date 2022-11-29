@@ -1,22 +1,15 @@
 import { SectionSkeleton } from '@/components/shared/SectionSkeleton'
-import { useReactiveColSize } from '@/hooks/useReactiveColSize'
 import { Button, Col, Form, Input, Row } from 'antd'
 import React, { FunctionComponent } from 'react'
 
 export const ContactForm: FunctionComponent = (): JSX.Element => {
   const [form] = Form.useForm()
 
-  const colSizes = {
-    desktop: 14,
-    mobile: 24,
-    default: 24
-  }
-
   return (
     <SectionSkeleton title="Contact Us">
       <Form form={form} layout="vertical">
         <Row className="contact-form-container" justify="center">
-          <Col span={useReactiveColSize(colSizes)}>
+          <Col xxl={14} xs={24}>
             <Form.Item
               name="name"
               label="Name"
@@ -27,7 +20,7 @@ export const ContactForm: FunctionComponent = (): JSX.Element => {
                 autoComplete="name" />
             </Form.Item>
           </Col>
-          <Col span={useReactiveColSize(colSizes)}>
+          <Col xxl={14} xs={24}>
             <Form.Item
               name="email"
               label="Email"
@@ -38,7 +31,7 @@ export const ContactForm: FunctionComponent = (): JSX.Element => {
                 autoComplete="email" />
             </Form.Item>
           </Col>
-          <Col span={useReactiveColSize(colSizes)}>
+          <Col xxl={14} xs={24}>
             <Form.Item
               name="message"
               label="Subject"
@@ -49,14 +42,14 @@ export const ContactForm: FunctionComponent = (): JSX.Element => {
                 autoComplete="off" />
             </Form.Item>
           </Col>
-          <Col span={useReactiveColSize(colSizes)}>
+          <Col xxl={14} xs={24}>
             <Form.Item
               name="messageDetails"
               label="Message">
               <Input.TextArea autoSize={{ minRows: 5, maxRows: 15 }} />
             </Form.Item>
           </Col>
-          <Col span={useReactiveColSize(colSizes)}>
+          <Col xxl={14} xs={24}>
             <Button type="primary" size="large">Submit</Button>
           </Col>
         </Row>

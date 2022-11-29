@@ -1,7 +1,6 @@
 import '../styles/globals.sass'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { SessionProvider } from 'next-auth/react'
 import { Session } from 'next-auth'
 import { ConfigProvider, theme } from 'antd'
 
@@ -27,11 +26,9 @@ function MyApp ({ Component, pageProps: { session, ...pageProps } }:
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
       </Head>
-      <SessionProvider session={session}>
-        <ConfigProvider theme={{ algorithm: darkAlgorithm }}>
-          <Component {...pageProps} />
-        </ConfigProvider>
-      </SessionProvider>
+      <ConfigProvider theme={{ algorithm: darkAlgorithm }}>
+        <Component {...pageProps} />
+      </ConfigProvider>
     </>
   )
 }

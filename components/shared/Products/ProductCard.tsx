@@ -21,13 +21,15 @@ export const ProductCard: FunctionComponent<IProductCardProps> = ({ product }) =
         cover={
           <Image
             height={350}
-            width={500}
-            objectFit="scale-down"
-            objectPosition="top"
+            width={900}
+            objectFit="cover"
             alt={product.name}
             src={product.image ?? ''} />
         }>
-        <Card.Meta title={product.name} description={product.comment} />
+        <Card.Meta
+          title={product.name}
+          description={product.comment}
+          style={{ marginTop: '1rem' }} />
         <Space
           size={[0, 8]}
           wrap={true}

@@ -2,19 +2,11 @@ import React, { FunctionComponent } from 'react'
 import { Form, Input, Button, Row, Col, Typography } from 'antd'
 import Link from 'next/link'
 
-import { ILoginCredentials } from '@/types/Auth'
-
-interface ILoginFormProps {
-  onSubmit: (values: ILoginCredentials) => void
-}
-
-export const LoginForm: FunctionComponent<ILoginFormProps> = ({ onSubmit }): JSX.Element => {
+export const LoginForm: FunctionComponent = (): JSX.Element => {
   const [form] = Form.useForm()
 
   const handleSubmit = async (): Promise<void> => {
     await form.validateFields()
-    const values: ILoginCredentials = form.getFieldsValue()
-    onSubmit(values)
   }
 
   return (

@@ -1,11 +1,9 @@
 import '../styles/globals.sass'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { Session } from 'next-auth'
 import { ConfigProvider, theme } from 'antd'
 
-function MyApp ({ Component, pageProps: { session, ...pageProps } }:
-  AppProps<{ session: Session }>): JSX.Element {
+function MyApp ({ Component, pageProps }: AppProps): JSX.Element {
   const { darkAlgorithm } = theme ?? {}
   return (
     <>
